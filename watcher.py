@@ -35,7 +35,10 @@ class Handler(FileSystemEventHandler):
 
         # compile
         compile()
-        Path("/flags/reload").unlink()
+        try:
+            Path("/flags/reload").unlink()
+        except:
+            pass
 
 
 subprocess.run(["git", "clone", environ.get("REPO"), "/repo"])
