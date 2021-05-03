@@ -45,8 +45,8 @@ subprocess.run(["git", "clone", environ.get("REPO"), "/repo"])
 compile()
 
 # start webhook service
-subprocess.Popen(["gunicorn", "app:app", "-w", "4", "-b", "0.0.0.0:81"])
-subprocess.Popen(["nginx", "-g", "daemon off;"])
+subprocess.Popen(["gunicorn", "app:app", "-w", "4", "-b", "0.0.0.0:81", "-k", "gevent"])
+subprocess.Popen(["caddy", "run"])
 
 event_handler = Handler()
 observer = Observer()

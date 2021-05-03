@@ -1,0 +1,9 @@
+{
+    auto_https off
+}
+
+:80 {
+    try_files {path}.html {path}
+    root * /site
+    file_server
+}
