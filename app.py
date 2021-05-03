@@ -1,5 +1,4 @@
 from flask import Flask, request, abort
-from github_webhook import Webhook
 import os
 from pathlib import Path
 from hmac import HMAC
