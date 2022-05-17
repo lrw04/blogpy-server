@@ -55,7 +55,8 @@ observer.start()
 
 try:
     while True:
-        sleep(1)
+        sleep(60)
+        Path("/flags/reload").touch()
 except KeyboardInterrupt:
     observer.stop()
 observer.join()
